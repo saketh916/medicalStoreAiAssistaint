@@ -1,0 +1,58 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  background-color: #ecfdf5;
+  padding: 2rem;
+}
+
+.home-card {
+  width: 90%;
+  height: 500px;
+  border-radius: 16px;
+  background-image: url('C:\Users\chatl\Documents\medico\frontend\public\med-banner.png');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: brightness(0.7);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+.overlay-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.overlay-content p {
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

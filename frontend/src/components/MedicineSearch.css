@@ -1,0 +1,141 @@
+.search-container {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.search-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.search-container input[type="text"] {
+  width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-container button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #007d3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #00662f;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.result-box ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.result-box li {
+  margin-bottom: 8px;
+}
+
+
+.suggestion-buttons {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.suggestion-btn {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+}
+
+.suggestion-btn:hover {
+  background-color: #e0f7ff;
+  color: #000;
+}
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add space between input and clear button */
+  width: 100%;
+}
+
+.input-wrapper input[type="text"] {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #007d3c;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+}
+
+.clear-btn {
+  background-color: #e77272;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  line-height: 1;
+  height: 100%; /* Match height of input */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+.clear-btn:hover {
+  background-color: #005f2f;
+}
+
+.check-btn {
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #007d3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.check-btn:hover {
+  background-color: #ec6868;
+}
