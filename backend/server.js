@@ -1,55 +1,33 @@
 // server.js
 require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
-const authRoutes = require('./routes/auth');
-const resumeRoutes = require('./routes/resume');
-const templateRoutes = require('./routes/templates');
+// Import your medicine routes
+const medicineRoutes = require('./routes/medicineRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGODB_URI;
 
 // Middleware
-app.use(cors());
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(cors()); // Enable CORS for all routes
+app.use(express.json()); // Parse incoming JSON requests
 
 // Test route
 app.get('/', (req, res) => {
-  res.send('Hello from Resume Maker Backend!');
+  res.send('Hello from Medical Store Assistant API!');
 });
 
-// Routes (⚠️ removed `/api` prefix so they work on Vercel root)
-app.use('/auth', authRoutes);
-app.use('/resume', resumeRoutes);
-app.use('/templates', templateRoutes);
+// Routes
+app.use('/medicines', medicineRoutes);
 
-// Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Resume Builder API is running' });
-});
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI;
 
-// Error handling
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({
-    message: 'Something went wrong!',
-    error: process.env.NODE_ENV === 'development' ? err.message : {}
-  });
-});
-
-// 404 handler
-app.use('*', (req, res) => {
-  res.status(404).json({ message: 'Route not found' });
-});
-
-// Connect to MongoDB & start server
-mongoose.connect(MONGO_URI || 'mongodb://localhost:27017/resume-builder')
+// Connect to MongoDB and start server
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log('✅ Connected to MongoDB');
+    console.log('✅ MongoDB connected');
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 Server running on http://0.0.0.0:${PORT}`);
     });
